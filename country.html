@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+<script>
+
+$.get("http://www.geoplugin.net/json.gp", function (response) {
+    $("#country_code").html(response.geoplugin_countryCode);
+    if(response.geoplugin_countryCode=='US'||response.geoplugin_countryCode=='JP'){
+    	document.getElementById(response.geoplugin_countryCode).style.display = "none";
+	}
+}, "json");
+
+
+</script>
+<style>
+#JP { text-align: left; color: blue; display:block;} 
+#US { text-align: left; color: blue; display:block;} 
+</style>
+</head>
+<body>
+
+<div id="country_code"></div>
+<div id="US">Japan dont show </div>
+<div id="JP">If is US u see</div>
+</body>
+</html>
